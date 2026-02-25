@@ -1,48 +1,426 @@
-body {
-    font-family: Arial, sans-serif;
+* {
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
+    box-sizing: border-box;
 }
 
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Styles */
 header {
-    background-color: #4CAF50;
+    background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
     color: white;
-    padding: 15px;
+    padding: 40px 20px;
     text-align: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    animation: slideDown 0.6s ease-out;
 }
 
+@keyframes slideDown {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.logo i {
+    font-size: 2.5rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin: 0;
+    font-weight: 700;
+}
+
+.tagline {
+    font-size: 1rem;
+    margin-top: 8px;
+    opacity: 0.95;
+    font-weight: 300;
+}
+
+/* Main Content */
 main {
-    padding: 20px;
+    flex: 1;
+    padding: 40px 20px;
 }
 
-h2 {
-    color: #4CAF50;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-ul {
-    list-style-type: none;
-    padding: 0;
+/* Search Section */
+.search-section {
+    margin-bottom: 40px;
+    animation: fadeIn 0.8s ease-out 0.2s both;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.search-box {
+    position: relative;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.search-box i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #27ae60;
+    font-size: 1.1rem;
+}
+
+#search-input {
+    width: 100%;
+    padding: 12px 15px 12px 45px;
+    font-size: 1rem;
+    border: 2px solid #2ecc71;
+    border-radius: 25px;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(46, 204, 113, 0.1);
+}
+
+#search-input:focus {
+    border-color: #27ae60;
+    box-shadow: 0 6px 20px rgba(46, 204, 113, 0.2);
+    transform: translateY(-2px);
+}
+
+.clear-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #27ae60;
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+    display: none;
+}
+
+.clear-btn:hover {
+    color: #e74c3c;
+    transform: translateY(-50%) scale(1.2);
+}
+
+.clear-btn.active {
+    display: block;
+}
+
+/* Season Filters */
+.season-filters {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    animation: fadeIn 0.8s ease-out 0.3s both;
+}
+
+.season-btn {
+    padding: 8px 16px;
+    border: 2px solid #2ecc71;
+    background: white;
+    color: #27ae60;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.season-btn:hover {
+    background: #f0f0f0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(46, 204, 113, 0.2);
+}
+
+.season-btn.active {
+    background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+    color: white;
+    border-color: #27ae60;
+    box-shadow: 0 6px 16px rgba(46, 204, 113, 0.3);
+}
+
+/* Content Wrapper */
+.content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    animation: fadeIn 0.8s ease-out 0.4s both;
+}
+
+/* Vegetables Section */
+.vegetables-section {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.vegetables-section:hover {
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    transform: translateY(-5px);
+}
+
+.vegetables-section h2 {
+    color: #2ecc71;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.vegetables-section i {
+    color: #27ae60;
+}
+
+.veggie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+    list-style: none;
 }
 
 li {
-    background: #e7f3fe;
-    margin: 10px 0;
-    padding: 10px;
-    border-radius: 5px;
+    background: linear-gradient(135deg, #e8f8f5 0%, #d5f4e6 100%);
+    padding: 15px;
+    border-radius: 10px;
     cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    text-align: center;
+    font-weight: 500;
+    color: #27ae60;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
 li:hover {
-    background: #d0e9ff;
+    background: linear-gradient(135deg, #d5f4e6 0%, #a9dfbf 100%);
+    border-color: #2ecc71;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(46, 204, 113, 0.2);
 }
 
-footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #4CAF50;
+li.active {
+    background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
     color: white;
-    position: absolute;
-    width: 100%;
-    bottom: 0;
+    border-color: #27ae60;
+}
+
+/* Farmer Section */
+.farmer-section {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    height: fit-content;
+    transition: all 0.3s ease;
+}
+
+.farmer-section:hover {
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    transform: translateY(-5px);
+}
+
+.farmer-section h2 {
+    color: #2ecc71;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.farmer-section i {
+    color: #27ae60;
+}
+
+.farmer-card {
+    animation: fadeIn 0.4s ease-out;
+}
+
+.farmer-card h3 {
+    color: #2c3e50;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #2ecc71;
+}
+
+.farmer-card p {
+    margin: 12px 0;
+    color: #555;
+    font-size: 1rem;
+}
+
+.farmer-card strong {
+    color: #2ecc71;
+}
+
+.no-selection {
+    text-align: center;
+    color: #999;
+    font-style: italic;
+    padding: 40px 20px;
+    font-size: 1.1rem;
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+    margin-top: auto;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.footer-content p {
+    margin: 5px 0;
+    font-size: 0.95rem;
+}
+
+.footer-content p:last-child {
+    opacity: 0.85;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        padding: 25px 15px;
+    }
+
+    .logo i {
+        font-size: 2rem;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    .tagline {
+        font-size: 0.85rem;
+    }
+
+    main {
+        padding: 25px 15px;
+    }
+
+    .content-wrapper {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .search-box {
+        max-width: 100%;
+    }
+
+    .season-filters {
+        gap: 8px;
+    }
+
+    .season-btn {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+
+    .vegetables-section,
+    .farmer-section {
+        padding: 20px;
+    }
+
+    .vegetables-section h2,
+    .farmer-section h2 {
+        font-size: 1.4rem;
+    }
+
+    .farmer-section {
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 20px 10px;
+    }
+
+    .logo {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .logo i {
+        font-size: 1.8rem;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .tagline {
+        font-size: 0.8rem;
+    }
+
+    main {
+        padding: 15px 10px;
+    }
+
+    .veggie-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .vegetables-section,
+    .farmer-section {
+        padding: 15px;
+    }
+
+    .farmer-card h3 {
+        font-size: 1.2rem;
+    }
 }

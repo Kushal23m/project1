@@ -3,26 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vegetable Farm Information</title>
+    <title>Vegetable Information Hub</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <header>
-        <h1>Vegetable Information Hub</h1>
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-leaf"></i>
+                <h1>Vegetable Farm Hub</h1>
+            </div>
+            <p class="tagline">Discover Fresh Produce From Local Farms</p>
+        </div>
     </header>
+
     <main>
-        <section id="vegetables">
-            <h2>Vegetables</h2>
-            <ul id="veggie-list"></ul>
-        </section>
-        <section id="farmer-details">
-            <h2>Farmer Details</h2>
-            <div id="farmer-info"></div>
-        </section>
+        <div class="container">
+            <!-- Search Section -->
+            <section id="search-section" class="search-section">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="search-input" placeholder="Search vegetables..." />
+                    <button id="clear-search" class="clear-btn" title="Clear search">×</button>
+                </div>
+                <div class="season-filters">
+                    <button class="season-btn active" data-season="all">All Seasons</button>
+                    <button class="season-btn" data-season="Summer">☀️ Summer</button>
+                    <button class="season-btn" data-season="Winter">❄️ Winter</button>
+                    <button class="season-btn" data-season="Monsoon">🌧️ Monsoon</button>
+                    <button class="season-btn" data-season="Year-Round">🔄 Year-Round</button>
+                </div>
+            </section>
+
+            <div class="content-wrapper">
+                <!-- Vegetables Section -->
+                <section id="vegetables" class="vegetables-section">
+                    <h2><i class="fas fa-carrot"></i> Available Vegetables</h2>
+                    <ul id="veggie-list" class="veggie-grid"></ul>
+                </section>
+
+                <!-- Farmer Details Section -->
+                <section id="farmer-details" class="farmer-section">
+                    <h2><i class="fas fa-user-tie"></i> Farmer Information</h2>
+                    <div id="farmer-info" class="farmer-card">
+                        <p class="no-selection">Select a vegetable to view farmer details</p>
+                    </div>
+                </section>
+            </div>
+        </div>
     </main>
+
     <footer>
-        <p>&copy; 2024 Vegetable Information Hub</p>
+        <div class="footer-content">
+            <p>&copy; 2024 Vegetable Information Hub | All Rights Reserved</p>
+            <p>Connecting Farmers to Communities</p>
+        </div>
     </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
